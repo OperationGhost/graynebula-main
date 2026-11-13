@@ -38,6 +38,10 @@ export function ToolsDirectory({
     (total, category) => total + category.tools.length,
     0,
   );
+  const toolCount = toolCategories.reduce(
+    (total, category) => total + category.tools.length,
+    0,
+  );
 
   return (
     <div className="tools-layout page-shell">
@@ -53,7 +57,7 @@ export function ToolsDirectory({
             <ToolIcon name="code" />
           </span>
           <span>All tools</span>
-          <span className="sidebar-count">16</span>
+          <span className="sidebar-count">{toolCount}</span>
         </button>
         <div className="sidebar-categories">
           <p className="sidebar-label">CATEGORIES</p>
@@ -150,13 +154,7 @@ export function ToolsDirectory({
                 <div className="tool-group-heading">
                   <div>
                     <p className="group-index">
-                      {category.name === "PDF"
-                        ? "01"
-                        : category.name === "Images"
-                          ? "02"
-                          : category.name === "Text"
-                            ? "03"
-                            : "04"}{" "}
+                      {category.name === "PDF" ? "01" : "02"}{" "}
                       / CATEGORY
                     </p>
                     <h2>{category.name}</h2>
@@ -165,7 +163,11 @@ export function ToolsDirectory({
                 </div>
                 <div className="tool-grid">
                   {category.tools.map((tool) => (
-                    <article className="tool-card" key={tool.name}>
+                    <a
+                      className="tool-card"
+                      href={tool.href}
+                      key={tool.name}
+                    >
                       <span className="tool-card-icon">
                         <ToolIcon name={tool.icon} />
                       </span>
@@ -174,7 +176,7 @@ export function ToolsDirectory({
                       </span>
                       <h3>{tool.name}</h3>
                       <p>{tool.description}</p>
-                    </article>
+                    </a>
                   ))}
                 </div>
               </section>

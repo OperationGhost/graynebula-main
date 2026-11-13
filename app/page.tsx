@@ -2,25 +2,32 @@ import Link from "next/link";
 import { SiteFooter } from "./components/site-footer";
 import { SiteHeader } from "./components/site-header";
 import { ToolIcon } from "./components/tool-icon";
+import { toolCategories } from "./tools/catalog";
 
 const categories = [
-  { name: "PDF tools", count: "05", icon: "pdf", href: "/tools?category=PDF" },
-  { name: "Image tools", count: "04", icon: "image", href: "/tools?category=Images" },
-  { name: "Text tools", count: "03", icon: "text", href: "/tools?category=Text" },
-  {
-    name: "Developer tools",
-    count: "04",
-    icon: "code",
-    href: "/tools?category=Developer",
-  },
+  { name: "PDF tools", count: "01", icon: "pdf", href: "/tools?category=PDF" },
+  { name: "Image tools", count: "01", icon: "image", href: "/tools?category=Images" },
 ] as const;
 
 const quickTools = [
-  { name: "Merge PDF", category: "PDF", icon: "merge" },
-  { name: "Image compressor", category: "IMAGES", icon: "compress" },
-  { name: "Word counter", category: "TEXT", icon: "text" },
-  { name: "JSON formatter", category: "DEVELOPER", icon: "code" },
+  {
+    name: "Convert PDF",
+    category: "PDF",
+    icon: "convert",
+    href: "https://graynebula-img-to-pdf.vercel.app/",
+  },
+  {
+    name: "Remove background",
+    category: "IMAGES",
+    icon: "background",
+    href: "https://graynebula-img-bg-remover.vercel.app/",
+  },
 ] as const;
+
+const toolCount = toolCategories.reduce(
+  (total, category) => total + category.tools.length,
+  0,
+);
 
 export default function Home() {
   return (
@@ -73,7 +80,7 @@ export default function Home() {
             >
               <div className="art-topline">
                 <span>THE EVERYDAY TOOLKIT</span>
-                <span>NO. 001 — 016</span>
+                <span>NO. 001 — {String(toolCount).padStart(3, "0")}</span>
               </div>
               <div className="art-display">
                 <div className="art-copy">
@@ -152,7 +159,7 @@ export default function Home() {
             </div>
             <div className="quick-tools">
               {quickTools.map((tool, index) => (
-                <div className="quick-tool" key={tool.name}>
+                <a className="quick-tool" href={tool.href} key={tool.name}>
                   <span className="quick-tool-number">
                     0{index + 1}
                   </span>
@@ -163,13 +170,13 @@ export default function Home() {
                     <span>{tool.category}</span>
                     <h3>{tool.name}</h3>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
             <div className="popular-cta">
               <p>Something else in mind?</p>
               <Link className="text-link" href="/tools">
-                See all 16 tools <span aria-hidden="true">↗</span>
+                See all {toolCount} tools <span aria-hidden="true">↗</span>
               </Link>
             </div>
           </div>

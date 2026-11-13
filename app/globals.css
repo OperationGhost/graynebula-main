@@ -1024,6 +1024,7 @@ input:focus-visible {
 
 .tool-card {
   position: relative;
+  display: block;
   min-height: 165px;
   padding: 15px 15px 16px;
   border: 1px solid var(--line);
@@ -1031,6 +1032,11 @@ input:focus-visible {
   transition:
     border-color 160ms ease,
     background 160ms ease;
+}
+
+.tool-card:hover {
+  border-color: #55544f;
+  background: #1c1c1a;
 }
 
 .tool-card-icon {
