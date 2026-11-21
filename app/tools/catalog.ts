@@ -23,6 +23,18 @@ export const toolCategories = [
       },
     ],
   },
+  {
+    name: "Diagrams",
+    description: "Turn ideas into clear, connected diagrams.",
+    tools: [
+      {
+        name: "Diagram Builder",
+        description: "Create and organize diagrams and flowcharts in an intuitive visual editor.",
+        icon: "diagram",
+        href: "https://graynebula-diagram.vercel.app/",
+      },
+    ],
+  },
 ] as const;
 
 export type ToolCategoryName = (typeof toolCategories)[number]["name"];

@@ -17,7 +17,8 @@ export type ToolIconName =
   | "json"
   | "base64"
   | "url"
-  | "uuid";
+  | "uuid"
+  | "diagram";
 
 const iconContent: Record<ToolIconName, React.ReactNode> = {
   search: <><circle cx="10.8" cy="10.8" r="6.8" /><path d="m16 16 4.5 4.5" /></>,
@@ -39,6 +40,7 @@ const iconContent: Record<ToolIconName, React.ReactNode> = {
   base64: <><path d="M4 5h16v14H4zM8 10v4m0-2h3m-3 0H7M14 10h3M14 10v4m0-2h3m0-2v4" /></>,
   url: <><path d="M10 13.5a4 4 0 0 0 5.7 0l2.5-2.5a4 4 0 0 0-5.7-5.7L11 6.8" /><path d="M14 10.5a4 4 0 0 0-5.7 0l-2.5 2.5a4 4 0 0 0 5.7 5.7l1.5-1.5" /></>,
   uuid: <><path d="M8 4h8M8 20h8M10 4v16m4-16v16M4 8v8m16-8v8" /><circle cx="6" cy="6" r="1" /><circle cx="18" cy="18" r="1" /></>,
+  diagram: <><path d="M8 7h8M8 8l4 8m4-8-4 8" /><rect x="3" y="3.5" width="5" height="5" rx="1" /><rect x="16" y="3.5" width="5" height="5" rx="1" /><rect x="9.5" y="15.5" width="5" height="5" rx="1" /></>,
 };
 
 export function ToolIcon({ name }: { name: ToolIconName }) {

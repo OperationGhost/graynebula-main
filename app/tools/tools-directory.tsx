@@ -149,13 +149,12 @@ export function ToolsDirectory({
 
         <div aria-live="polite" className="tool-results">
           {visibleCategories.length > 0 ? (
-            visibleCategories.map((category) => (
+            visibleCategories.map((category, index) => (
               <section className="tool-group" key={category.name}>
                 <div className="tool-group-heading">
                   <div>
                     <p className="group-index">
-                      {category.name === "PDF" ? "01" : "02"}{" "}
-                      / CATEGORY
+                      {String(index + 1).padStart(2, "0")} / CATEGORY
                     </p>
                     <h2>{category.name}</h2>
                   </div>

@@ -7,6 +7,7 @@ import { toolCategories } from "./tools/catalog";
 const categories = [
   { name: "PDF tools", count: "01", icon: "pdf", href: "/tools?category=PDF" },
   { name: "Image tools", count: "01", icon: "image", href: "/tools?category=Images" },
+  { name: "Diagram tools", count: "01", icon: "diagram", href: "/tools?category=Diagrams" },
 ] as const;
 
 const quickTools = [
@@ -21,6 +22,12 @@ const quickTools = [
     category: "IMAGES",
     icon: "background",
     href: "https://graynebula-img-bg-remover.vercel.app/",
+  },
+  {
+    name: "Diagram Builder",
+    category: "DIAGRAMS",
+    icon: "diagram",
+    href: "https://graynebula-diagram.vercel.app/",
   },
 ] as const;
 
